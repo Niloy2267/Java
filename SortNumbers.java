@@ -1,20 +1,38 @@
-import java.util.Arrays;
-import java.util.Scanner;
+ import java.util.Scanner;
 
-class SortNumbers {
+public class SortNumbers{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of elements: ");
-        int n = sc.nextInt();
-        int[] arr = new int[n];
-        System.out.println("Enter " + n + " numbers: ");
-        for (int i = 0; i < n; i++)
-            arr[i] = sc.nextInt();
-        Arrays.sort(arr);
-        System.out.print("Sorted numbers: ");
-        for (int num : arr)
-            System.out.print(num + " ");
-        System.out.println();
-        sc.close();
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the number of elements
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        
+        // Create an array to store the numbers
+        int[] numbers = new int[n];
+        
+        // Input the numbers
+        System.out.println("Enter the numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        
+        // Bubble Sort algorithm
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    // Swap the elements
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+        
+        // Output the sorted numbers
+        System.out.println("Sorted numbers in ascending order:");
+        for (int i = 0; i < n; i++) {
+            System.out.print(numbers[i] + " ");
+        }
     }
 }

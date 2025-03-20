@@ -2,17 +2,25 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        // Factorial of a number
-        System.out.print("Enter a number to find factorial: ");
-        int factNum = scanner.nextInt();
-        int factorial = 1;
-        for (int i = 1; i <= factNum; i++) {
-            factorial *= i;
+        // Taking input from the user
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        // Call the function to calculate factorial
+        long factorial = calculateFactorial(num);
+
+        // Display the result
+        System.out.println("The factorial of " + num + " is " + factorial);
+    }
+
+    // Method to calculate factorial
+    public static long calculateFactorial(int num) {
+        long fact = 1;
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
         }
-        System.out.println("Factorial: " + factorial);
-
-        scanner.close();
+        return fact;
     }
 }
